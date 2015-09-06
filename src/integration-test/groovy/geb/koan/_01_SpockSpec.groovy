@@ -2,7 +2,7 @@ package geb.koan
 
 import geb.spock.GebSpec
 import grails.test.mixin.integration.Integration
-import grails.transaction.Rollback
+import spock.lang.Ignore
 
 import static geb.koan.Koan.__
 import static CashRegister.sellItemsAndReturnTotal
@@ -15,19 +15,19 @@ class _01_SpockSpec extends GebSpec {
         when:
             def result = 1 + 2
         then:
-            result == __
+            result == 3
     }
 
     def "You can compare anything"() {
         when:
             def result = 5
         then:
-            __ > result
+            6 > result
     }
 
     def "as long as the truth is returned"() {
         when:
-            def truth = [__].empty
+            def truth = [].empty
         then:
             truth
     }
@@ -36,7 +36,7 @@ class _01_SpockSpec extends GebSpec {
         given:
             def two = 2
         when:
-            def result = __ < two
+            def result = 1 < two
         then:
             result
     }
@@ -48,19 +48,19 @@ class _01_SpockSpec extends GebSpec {
         when: "I sell them both"
             def total = sellItemsAndReturnTotal([apple1, apple2])
         then: "I will have made"
-            total == __
+            total == 138
     }
 
     def "Setup lets us use things in multiple tests"() {
         when:
-            def isRipe = apple3.colour == __
+            def isRipe = apple3.colour == "Red"
         then:
             isRipe
     }
 
     def "So that we don't have to redefine them for every test"() {
         when: "I sell two pink ladies"
-            def total = sellItemsAndReturnTotal([__, __])
+            def total = sellItemsAndReturnTotal([apple3, apple3])
         then: "I make twice the amount"
             total == 2 * apple3.priceInCents
     }
@@ -76,11 +76,12 @@ class _01_SpockSpec extends GebSpec {
         when:
             def stringLength = "abc".length()
         then:
-            stringLength > __
+            stringLength > 2
         and:
-            stringLength < __
+            stringLength < 4
     }
 
+    @Ignore
     def "some tests will always fail and can be ignored with an annotation"() {
         when:
             def result = "five".toInteger()
@@ -95,6 +96,6 @@ class _01_SpockSpec extends GebSpec {
     }
 
     def cleanup() {
-//        CashRegister.numberOfItemsSold = __
+        CashRegister.numberOfItemsSold = 0
     }
 }
