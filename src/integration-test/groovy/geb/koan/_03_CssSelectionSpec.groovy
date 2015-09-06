@@ -14,20 +14,20 @@ class _03_CssSelectionSpec extends GebSpec {
         when:
             go "/css-selection"
         then: "The main heading text is"
-            $("h1").text() == __
+            $("h1").text() == "Css Selection"
     }
 
     def "You can find elements on the page by passing in the element name"() {
         when:
             go "/css-selection"
         then: "The sub heading text is"
-            __.text() == "A natural way of extracting html content"
+            $("h2").text() == "A natural way of extracting html content"
     }
 
     def "You can also gain access to the elements attributes"() {
         when:
             go "/css-selection"
         then: "The anchors href attribute points to some css selector documentation"
-            $("a").@__ == "http://www.w3schools.com/cssref/css_selectors.asp"
+            $("a").@href == "http://www.w3schools.com/cssref/css_selectors.asp"
     }
 }
