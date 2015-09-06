@@ -14,12 +14,12 @@ class _02_BrowserDriving extends GebSpec {
         when: "I go to the home page"
             go "/"
         then: "I check the page title using Geb's built in title method"
-            title == __
+            title == "Geb Koans"
     }
 
     def "You can go to any page by passing in the URL path"() {
         when: "I go to the /browser-driving page"
-            go __
+            go "/browser-driving"
         then:
             title == "Browser Driving"
     }
