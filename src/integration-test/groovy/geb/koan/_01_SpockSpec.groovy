@@ -11,16 +11,6 @@ import static CashRegister.sellItemsAndReturnTotal
 class _01_SpockSpec extends GebSpec {
     // For help see: http://spockframework.github.io/spock/docs/1.0/index.html
 
-    Apple apple3
-
-    def setup() {
-        apple3 = new Apple(variety: "Pink Lady", colour: "Red", priceInCents: 76)
-    }
-
-    def cleanup() {
-        CashRegister.numberOfItemsSold = __
-    }
-
     def "Testing is as easy as 1 2 3"() {
         when:
             def result = 1 + 2
@@ -96,5 +86,15 @@ class _01_SpockSpec extends GebSpec {
             def result = "five".toInteger()
         then:
             result == 5
+    }
+
+    Apple apple3
+
+    def setup() {
+        apple3 = new Apple(variety: "Pink Lady", colour: "Red", priceInCents: 76)
+    }
+
+    def cleanup() {
+//        CashRegister.numberOfItemsSold = __
     }
 }
