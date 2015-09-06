@@ -8,7 +8,7 @@ import static CashRegister.sellItemsAndReturnTotal
 import static geb.koan.Koan.__
 
 @Integration
-class _02_BrowserDriving extends GebSpec {
+class _02_BrowserDrivingSpec extends GebSpec {
 
     def "Geb drives the browser to web pages you want to test"() {
         when: "I go to the home page"
@@ -23,5 +23,4 @@ class _02_BrowserDriving extends GebSpec {
         then:
             title == "Browser Driving"
     }
-
 }
