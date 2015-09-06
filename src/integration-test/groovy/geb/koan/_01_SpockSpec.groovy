@@ -1,10 +1,14 @@
 package geb.koan
 
 import geb.spock.GebSpec
+import grails.test.mixin.integration.Integration
+import grails.transaction.Rollback
+
 import static geb.koan.Koan.__
 import static CashRegister.sellItemsAndReturnTotal
 
-class SpockSpec extends GebSpec {
+@Integration
+class _01_SpockSpec extends GebSpec {
     // For help see: http://spockframework.github.io/spock/docs/1.0/index.html
 
     Apple apple3

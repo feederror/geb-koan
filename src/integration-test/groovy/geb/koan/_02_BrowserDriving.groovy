@@ -1,0 +1,27 @@
+package geb.koan
+
+import geb.spock.GebSpec
+import grails.test.mixin.integration.Integration
+import grails.transaction.Rollback
+
+import static CashRegister.sellItemsAndReturnTotal
+import static geb.koan.Koan.__
+
+@Integration
+class _02_BrowserDriving extends GebSpec {
+
+    def "Geb drives the browser to web pages you want to test"() {
+        when: "I go to the home page"
+            go "/"
+        then: "I check the page title using GEB's built in title method"
+            title == __
+    }
+
+    def "You can go to any page by passing in the URL path"() {
+        when: "I go to the /browser-driving page"
+            go __
+        then:
+            title == "Browser Driving"
+    }
+
+}
