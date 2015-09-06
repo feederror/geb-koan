@@ -9,6 +9,7 @@ class UrlMappings {
 
         "/"(view:"/index")
         "/css-selection"(view:"/css-selection")
+        "/browser-driving"(view:"/browser-driving")
 
         "500"(view:'/error')
         "404"(view:'/notFound')

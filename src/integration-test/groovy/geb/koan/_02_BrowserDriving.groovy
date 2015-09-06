@@ -13,7 +13,7 @@ class _02_BrowserDriving extends GebSpec {
     def "Geb drives the browser to web pages you want to test"() {
         when: "I go to the home page"
             go "/"
-        then: "I check the page title using GEB's built in title method"
+        then: "I check the page title using Geb's built in title method"
             title == __
     }
 
